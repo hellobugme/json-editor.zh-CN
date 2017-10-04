@@ -7,7 +7,7 @@ JSON Editor
 
 JSON Editor 通过一个 JSON Schema 来生成 HTML 表单。
 
-> JSON Schema：JSON 模式，用于描述 JSON 的数据格式，便于表单数据校验、自动化测试。
+> JSON Schema：JSON 模式，用于描述 JSON 的数据格式，便于表单数据校验、自动化测试。<br/>
 > 参考：[ [json-schema.org](http://json-schema.org/) ]、[ [json-schema入门](http://imweb.io/topic/570ba3e9708d4d2039debc0b) ]
 
 支持 JSON Schema 版本 3 和 4，且集成了一些流行的 CSS 框架（bootstrap、foundation、jQueryUI）。
