@@ -8,7 +8,7 @@ JSON Editor
 JSON Editor 通过一个 JSON Schema 来生成 HTML 表单。
 
 > JSON Schema：JSON 模式，用于描述 JSON 的数据格式，便于表单数据校验、自动化测试。<br/>
-> 参考：[ [json-schema.org](http://json-schema.org/) ]、[ [json-schema入门](http://imweb.io/topic/570ba3e9708d4d2039debc0b) ]
+> 参考：[json-schema.org](http://json-schema.org/)、[json-schema入门](http://imweb.io/topic/570ba3e9708d4d2039debc0b)
 
 支持 JSON Schema 版本 3 和 4，且集成了一些流行的 CSS 框架（bootstrap、foundation、jQueryUI）。
 
@@ -1095,9 +1095,9 @@ schema 的 `title` 关键词用于在编辑界面添加一个友好的表单头�
 ```js
 var myengine = {
   compile: function(template) {
-    // compile 方法返回一个渲染函数
+    // compile 方法返回一个编译函数
     return function(vars) {
-      // 模板引擎在这里渲染模板
+      // 模板引擎在这里编译模板
       var result = template;
       return result;
     }
@@ -1147,7 +1147,7 @@ JSON Editor 自带了基本的 JSON 数据类型和一些特殊数据类型的�
 
 参考现有的编辑器接口，可以很容易地添加自定义的编辑器接口。
 
-JSON Editor 通过 resolver 函数来指定对特定 schema 或 subschema 使用哪个编辑器接口。
+JSON Editor 通过 resolver 函数来判断对于特定的 schema 或 subschema 使用哪个编辑器接口。
 
 假设自定义了一个 `location` 编辑器用于编辑地理数据，通过添加一个 resolver 函数，让 format 为 `location` 的数据使用该编辑器：
 
@@ -1230,7 +1230,7 @@ JSONEditor.defaults.custom_validators.push(function(schema, value, path) {
 jQuery 集成
 -------------------
 
-__*WARNING__：该方式不建议使用，且可能在未来的版本不被支持。
+__*警告__：该方式不建议使用，且可能在未来的版本不被支持。
 
 如果加载了 jQuery（或 Zepto），JSON Editor 可以当作普通的 jQuery 插件来使用。
 
