@@ -8,18 +8,18 @@ Translate from [jdorn/json-editor/wiki](https://github.com/jdorn/json-editor/wik
 
 框架结构
 ---------------------
-JSON Editor 基于模块化开发，本章节概览所有的模块组件以及它们如何配合运作。
+JSON Editor 基于模块化开发，本章节介绍所有的模块组件以及它们如何配合运作。
 
 ### 闭包头和闭包尾（src/intro.js 和 src/outro.js）
 
 这两个文件形成一个闭包，将所有代码包裹在里面，确保代码自包含。
 
 另外，`intro.js` 头部的注释里还包含了许可信息、版本号和日期。<br/>
-JSON Editor 使用了语义化版本控制，目前处于 1.0 版本之前的阶段。每次推送代码到 github，这个版本号都会递增。当添加了重要新特性或不能向下兼容的功能时，次版本号会递增，否则修订号会递增。
+JSON Editor 使用了语义化版本控制，目前处于 1.0 版本之前的阶段。每次推送代码到 github，这个版本号都会递增。当添加了重要的新特性或不能向下兼容的功能时，次版本号会递增，否则修订号会递增。
 
 ### 类继承（src/class.js）
 
-JSON Editor 使用的是 John Resig 的简单 Javascript 继承模型（ http://ejohn.org/blog/simple-javascript-inheritance/ ）。我不推荐在复杂的继承结构里使用这个，但它非常适合 JSON Editor 的使用场景。
+JSON Editor 使用了 John Resig 的简单 Javascript 继承模型（ http://ejohn.org/blog/simple-javascript-inheritance/ ）。我不推荐在复杂的继承结构里使用这个，但它非常适合 JSON Editor 的使用场景。
 
 ```js
 var MyParentClass = Class.extend({
@@ -35,11 +35,11 @@ var MyChildClass = MyParentClass.extend({
 });
 ```
 
-JSON Editor 的每个部分都是一个类，在需要时可以进行扩展而不需要直接修改核心代码。
+JSON Editor 的每个部分都是一个类，在需要时可以进行扩展，而不需要直接修改核心代码。
 
 ### 工具函数（src/utilities.js）
 
-JSON Editor 最初是作为一个 jQuery 插件来开发的，在移除对 jQuery 的依赖后，添加了几个实用的工具函数。
+JSON Editor 最初是作为一个 jQuery 插件来开发，在移除对 jQuery 的依赖后，添加了几个实用的工具函数。
 
 *  __$extend__ - 类似于 `jQuery.extend`，不过默认递归（即深度复制）
 *  __$each__ - 功能与 `jQuery.each` 一致
@@ -59,7 +59,7 @@ JSON Editor 最初是作为一个 jQuery 插件来开发的，在移除对 jQuer
 校验器负责检查 JSON 数据是否符合 JSON Schema 的定义，并返回一个错误信息列表。
 当编辑器的值发生变更时，校验器都会自动运行。
 
-校验结果应用于不同的场景，最明显的使用场景是在已渲染的表单中显示行内错误提示，以及提供给 `validate` api 调用。另一个不是很明显的使用场景，是判断渲染表单某个部分时，要使用哪个 `oneOf` schema。
+校验结果应用于不同的场景，最典型的使用场景，是在已渲染的表单中显示行内错误提示，以及提供给 `validate` api 调用。另一个不是很明显的使用场景，是在渲染表单的某个部分时，用于判断要使用哪个 `oneOf` schema。
 
 思考下面的 JSON Schema：
 
@@ -85,7 +85,7 @@ JSON Editor 最初是作为一个 jQuery 插件来开发的，在移除对 jQuer
 }
 ```
 
-当通过代码设置表单的值时，JSON Editor 校验每个 schema，并使用第一个校验通过的 schema 来渲染表单。复合类型与此类似（如 `{ "type": ["integer","string"] }`）。
+当通过代码设置表单的值时，JSON Editor 会校验每个 schema，并使用第一个校验通过的 schema 来渲染表单。复合类型与此类似（如 `{ "type": ["integer","string"] }`）。
 
 校验器本身的代码非常复杂，它从最外层的 schema 开始，递归下降，校验每一个子 schema。支持 JSON Schema 草案 3 和 4 的所有关键字。
 
@@ -128,14 +128,14 @@ JSONEditor.defaults.iconlibs.fontawesome4 = JSONEditor.AbstractIconLib.extend({
 
 主题（src/theme.js）
 -------------------
-theme.js 负责处理 JSON Editor 表单的 DOM 创建、布局和渲染风格。所有的主题继承自 `JSONEditor.AbstractTheme` 类。
+主题负责处理 JSON Editor 表单的 DOM 创建、布局和渲染。所有的主题继承自 `JSONEditor.AbstractTheme` 类。
 
-JSON Editor 只附带了几个的主题，要创建自己的主题非常简单。抽象类中的方法返回一个最基础的 DOM 节点结构，所以大部分情况下你只需要这样：
+JSON Editor 只附带了几个的主题，要创建自己的主题非常简单，抽象类中的函数返回一个最基础的 DOM 节点结构，所以大部分情况下你只需要这样：
 
 ```js
 JSONEditor.defaults.themes.mytheme = JSONEditor.AbstractTheme.extend({
   getTable: function() {
-    // 基类方法创建了一个空的 <table> DOM 元素
+    // 基类的函数创建了一个空的 <table> DOM 元素
     var el = this._super();
     
     // 修改这个基础元素
@@ -171,7 +171,7 @@ var mytemplate = {
 
 `JSONEditor.defaults.resolvers` 包含了一个由 resolver 函数组成的数组，resolver 函数用于判断对于特定的 schema 使用哪个编辑器，resolver 函数匹配到时返回对应编辑器的名字，否则返回 null 并执行下一个 resolver 函数。例如，拿一个 resolver 函数来匹配 `{"type":"boolean"}`，如果匹配到了则返回布尔值编辑器的名字。
 
-AbstractEditor 类定义了许多方法可以让子类扩展，这个后面会阐述。
+AbstractEditor 类定义了许多可以让子类扩展的方法，下面逐个说明。
 
 ### editor.preBuild()
 这个方法会在编辑器实例化后调用，可以在这里放置初始化代码，但不要创建任何 DOM 元素。例如，你可以解析 schema 配置项，建立数据结构，实例化和预编译子编辑器等等。
@@ -190,9 +190,9 @@ AbstractEditor 类定义了许多方法可以让子类扩展，这个后面会�
 这个函数用于创建 DOM 元素并渲染到界面上，它可以访问 `preBuild` 函数中的所有对象属性，并追加：
 
 *  `this.container` - 编辑器包裹 DOM 元素的容器
-*  `this.theme` - 主题类的实例（例如一个扩展于 `JSONEditor.AbstractTheme` 的主题），通过它来创建 DOM 结构。
+*  `this.theme` - 主题类的实例（例如一个扩展自 `JSONEditor.AbstractTheme` 的主题），通过它来创建 DOM 结构。
 
-当用户修改了编辑器的值（如勾选一个复选框），它需要调用 `this.onChange(true);` 来通知 JSON Editor。你也可能希望通过调用 `this.refreshValue()` 来保存这个值。
+当用户修改了编辑器的值（如勾选一个复选框），它需要调用 `this.onChange(true);` 来通知 JSON Editor。你也可能想要调用 `this.refreshValue()` 来保存这个值。
 
 ### editor.postBuild()
 这个函数会在 `build` 后立即执行，通常用于创建事件侦听器和一些收尾工作。
@@ -204,7 +204,7 @@ AbstractEditor 类定义了许多方法可以让子类扩展，这个后面会�
 
 设置编辑器的初始（或默认）值时，`initial` 参数设置为 `true`。
 
-该函数执行完成后，应该调用 `this.refreshValue()`。
+该函数执行完成后，应该调用 `this.refreshValue()` 来保存新的值。
 
 ### editor.refreshValue()
 这个函数为编辑器建立 JSON 数据并保存到 `this.value`。例如，一个简单的字符串编辑器可以这样做 `this.value = this.input.value;`。
@@ -260,7 +260,7 @@ core.js 是 JSON Editor 的核心代码，提供了一些工具函数，并把�
 
 默认配置（src/defaults.js）
 ------------------------
-这个文件提供了默认的 JSON Editor 配置，使 JSON Editor 在没有进行任何配置时也可以正常运行。所有配置项的默认值，在 JSON Editor 加载完成后都可以修改。
+这个文件提供了默认的 JSON Editor 配置，使 JSON Editor 在没有进行任何配置时也可以正常运行。在 JSON Editor 加载完成后，所有配置项的默认值都可以修改。
 
 jQuery 集成（src/jquery.js）
 ------------------------
