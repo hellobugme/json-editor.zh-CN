@@ -181,7 +181,7 @@ var editor = new JSONEditor(element, {
   </tbody>
 </table>
 
-__*Note__ 如果 `ajax` 属性设置为 `true`，且 JSON Editor 需要获取外部数据，api 中的一些方法不能立即生效，需要在侦听 `ready` 事件触发后才能使用：
+__*注意__ 如果 `ajax` 属性设置为 `true`，且 JSON Editor 需要获取外部数据，api 中的一些方法不会立即生效，需要在 `ready` 事件触发后才能使用：
 
 ```js
 editor.on('ready',function() {
