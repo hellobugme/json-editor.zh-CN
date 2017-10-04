@@ -1031,9 +1031,6 @@ var editor = new JSONEditor(element,{
 }
 ```
 
-The colors examples used an array of strings directly.  Using the verbose form, you can
-also make it work with an array of objects.  Here's an example:
-
 上面的示例是直接使用一个字符串数组作为枚举数据源，在复杂的表单中，也可以使用对象数组作为枚举数据源。这是一个示例：
 
 ```js+jinja
