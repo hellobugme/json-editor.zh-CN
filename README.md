@@ -403,7 +403,6 @@ JSON Editor 支持引用外部 schema 和内部定义。下面是两种方式的
 
 如果通过 Ajax 来加载一个外部 url，url 必须在同个域名下，或返回正确的跨域 HTTP 头。
 
-If your URLs don't meet this requirement, you can pass in the references to JSON Editor during initialization (see Usage section above).
 如果 url 不能满足这些要求，可以在 JSON Editor 初始化时引入（参考上面章节的示例）。
 
 Self-referential $refs （自引用）也是支持的，示例可以参考 `examples/recursive.html`。
