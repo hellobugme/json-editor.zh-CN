@@ -570,7 +570,7 @@ __SCEditor__ 提供一个 HTML 和 BBCode 的 WYSIWYG 编辑器。
 
 将 `format` 设置为 `html` 或 `bbcode`，并将 `wysiwyg` 设置为 `true` 来使用它：
 
-> BBCode：BB代码，在编译时会解析为相应的 HTML 结构。就是类似于 “[微笑]” 这种，在输出时会渲染为一个微笑的表情。
+> BBCode：BB代码，在编译时会解析为相应的 HTML 结构。例如 “[微笑]”，在输出时会渲染为一个微笑的表情。<br/>
 > WYSIWYG：What You See Is What You Get，所见即所得。
 
 ```json
