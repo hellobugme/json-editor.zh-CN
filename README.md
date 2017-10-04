@@ -546,7 +546,7 @@ JSON Editor 使用的是 HTML5 input 类型，所以在一些老的浏览器中�
 *  url
 *  week
 
-![JSON Editor string formats](https://github.com/hellobugme/json-editor.zh-CN/master/formats.png)
+![JSON Editor string formats](https://raw.github.com/hellobugme/json-editor.zh-CN/master/formats.png)
 
 下面的示例在支持的浏览器中，将显示一个颜色选择器：
 
