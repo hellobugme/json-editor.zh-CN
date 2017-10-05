@@ -35,7 +35,7 @@
       schema: {
         type: 'object',
         properties: {
-          colorPicker: {
+          spectrum: {
             type: 'string',
             title: 'Spectrum',
             format: 'spectrum',
@@ -47,9 +47,9 @@
                 console.log( color.toHexString() );
               }
             },
-            default: '#FF0000'
+            default: '#ff0000'
           },
-          colorPickerInTable: {
+          spectrumInTable: {
             type: 'array',
             title: 'Spectrum in Table',
             format: 'table',
@@ -58,7 +58,7 @@
               format: 'spectrum',
               default: '#000000'
             },
-            default: [ '#00FF00', '#0000FF' ]
+            default: [ '#00ff00', '#0000ff' ]
           }
         }
       }
