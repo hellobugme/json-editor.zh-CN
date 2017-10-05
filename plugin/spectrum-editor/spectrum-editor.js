@@ -45,19 +45,6 @@ License: MIT
 
     },
 
-    // sanitize: function( value ) {
-    //   value = value + "";
-    //   value = value.replace( /[^0-9a-fA-F#]/g, '' );
-    //   if( value.charAt(0) !== '#' ){
-    //     value = '#' + value;
-    //   }
-    //   value = value.substr( 0, 7 );
-    //   for( var i = 0, count = ( value.length > 4 ? 7 : 4 ) - value.length; i < count; i++ ){
-    //     value += '0';
-    //   }
-    //   return value;
-    // },
-
     refreshValue: function() {
       this._super();
       // update spectrum's value
