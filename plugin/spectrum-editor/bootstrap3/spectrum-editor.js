@@ -86,6 +86,13 @@ License: MIT
       this.spectrumReplacer.addClass( 'sp-je-disabled' );
       // hide colorpicker
       this.spectrumInput.spectrum( 'hide' );
+    },
+
+    destroy: function(){
+      if( this.spectrumWrapper ){
+        this.spectrumInput.spectrum( 'destroy' );
+      }
+      this._super();
     }
 
   });

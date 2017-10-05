@@ -40,12 +40,13 @@ License: MIT
         }
       };
 
+      this.spectrumWrapper = $('<div style="margin-bottom: 12px;"></div>').appendTo( this.input.parentNode ).append( this.input );
       this.spectrumInput = $( this.input ).spectrum( spectrumOptions );
       this.spectrumReplacer = this.spectrumInput.siblings( '.sp-replacer' );
 
     },
 
-    refreshValue: function() {
+    refreshValue: function(){
       this._super();
       // update spectrum's value
       if( this.spectrumInput ){
@@ -53,16 +54,24 @@ License: MIT
       }
     },
 
-    enable: function() {
+    enable: function(){
       this._super();
       this.spectrumReplacer.removeClass( 'sp-je-disabled' );
     },
 
-    disable: function() {
+    disable: function(){
       this._super();
       this.spectrumReplacer.addClass( 'sp-je-disabled' );
       // hide colorpicker
       this.spectrumInput.spectrum( 'hide' );
+    },
+
+    destroy: function(){
+      if( this.spectrumWrapper ){
+        this.spectrumInput.spectrum( 'destroy' );
+        this.spectrumWrapper.remove();
+      }
+      this._super();
     }
 
   });
