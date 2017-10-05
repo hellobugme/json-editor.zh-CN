@@ -1,0 +1,33 @@
+/***
+Spectrum Editor for JSON Editor
+https://github.com/hellobugme/json-editor.zh-CN
+Author: Kainan Hong
+License: MIT
+***/
+
+.sp-replacer {
+    position: absolute;
+    margin-top: -33px;
+    margin-left: 1px;
+    border: none;
+    border-right: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 6px;
+}
+.sp-replacer:hover, .sp-replacer.sp-active {
+    border: 1px solid #F0C49B;
+    margin-top: -34px;
+    margin-left: 0;
+    background-color: #f9f9f9;
+}
+.sp-input {
+    background-color: white;
+}
+.sp-palette {
+    max-width: 100px;
+}
+.disabled {
+    opacity: .6;
+    pointer-events: none;
+}
