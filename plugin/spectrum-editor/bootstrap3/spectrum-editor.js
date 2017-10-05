@@ -25,7 +25,14 @@ License: MIT
       this._super();
 
       var self = this;
-      
+
+      this.input.type = 'text';
+      this.input.classList.add( 'sp-je-input' );
+
+      if( this.label ){
+        this.label.classList.add( 'sp-je-label' );
+      }
+
       var spectrumOptions = {
         preferredFormat: "hex",
         color: this.value
@@ -33,14 +40,17 @@ License: MIT
       $.extend(true, spectrumOptions, JSONEditor.defaults.spectrum, this.schema.spectrum);
       spectrumOptions._change = spectrumOptions.change;
       spectrumOptions.change =  function( color ) {
-        self.refreshValue();
+        self.setValue( color.toHexString() );
         self.onChange(true);
         if( typeof spectrumOptions._change === 'function' ){
           spectrumOptions._change.call( this, color );
         }
       };
 
-      this.spectrumInput = $( this.input ).spectrum( spectrumOptions );
+      this.spectrumInput = $( '<input>' );
+      this.spectrumInput.insertAfter( this.input )
+      this.spectrumInput.spectrum( spectrumOptions );
+
       this.spectrumReplacer = this.spectrumInput.siblings( '.sp-replacer' );
 
     },
@@ -78,6 +88,21 @@ License: MIT
       this.spectrumInput.spectrum( 'hide' );
     }
 
+  });
+
+  // color validator
+  JSONEditor.defaults.custom_validators.push( function( schema, value, path ) {
+    var errors = [];
+    if( schema.format === "spectrum" ) {
+      if( !/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(value) ) {
+        errors.push({
+          path: path,
+          property: 'format',
+          message: 'Color must be #xxx or #xxxxxx'
+        });
+      }
+    }
+    return errors;
   });
 
 })();

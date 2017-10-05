@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <title>spectrum-editor demo</title>
   <!-- jsoneditor js -->
-  <script src='../../jsoneditor.min.js'></script>
+  <script src='../../../jsoneditor.min.js'></script>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <!-- jQuery js -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <!-- spectrum js & css -->
@@ -12,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
   <!-- spectrum-editor js & css -->
   <script src='spectrum-editor.js'></script>
-  <link rel="stylesheet" type="text/css" href="spectrum-editor.css">
+  <link rel="stylesheet" type="text/css" href="spectrum-editor-bootstrap3.css">
 </head>
 <body>
   <div id="editor_holder" style="margin: 10px;"></div>
@@ -28,6 +30,8 @@
 
     var element = document.getElementById('editor_holder');
     var editor = new JSONEditor( element, {
+      theme: 'bootstrap3',
+      iconlib: 'bootstrap3',
       schema: {
         type: 'object',
         properties: {
