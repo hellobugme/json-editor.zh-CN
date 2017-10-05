@@ -42,7 +42,6 @@ License: MIT
 
       this.spectrumWrapper = $('<div style="margin-bottom: 12px;"></div>').appendTo( this.input.parentNode ).append( this.input );
       this.spectrumInput = $( this.input ).spectrum( spectrumOptions );
-      this.spectrumReplacer = this.spectrumInput.siblings( '.sp-replacer' );
 
     },
 
@@ -56,12 +55,12 @@ License: MIT
 
     enable: function(){
       this._super();
-      this.spectrumReplacer.removeClass( 'sp-je-disabled' );
+      this.spectrumWrapper.removeClass( 'sp-je-disabled' );
     },
 
     disable: function(){
       this._super();
-      this.spectrumReplacer.addClass( 'sp-je-disabled' );
+      this.spectrumWrapper.addClass( 'sp-je-disabled' );
       // hide colorpicker
       this.spectrumInput.spectrum( 'hide' );
     },
