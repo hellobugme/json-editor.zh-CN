@@ -6,7 +6,7 @@ License: MIT
 ***/
 
 ;(function(){
-  
+
   // default options
   JSONEditor.defaults.upload = {
     label: 'file'
@@ -52,7 +52,7 @@ License: MIT
 
       this.input.style.paddingLeft = this.uploadWrapper.offsetWidth + 10 + 'px';
 
-      var change = this.schema.upload && this.schema.upload.change || JSONEditor.defaults.upload.change
+      var change = this.schema.upload && this.schema.upload.change || JSONEditor.defaults.upload.change;
       this.uploadInput.onchange = function( e ){
         var file = e.target.files[0];
         if( file ){
