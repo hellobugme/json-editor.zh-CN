@@ -29,10 +29,6 @@ License: MIT
       this.input.type = 'text';
       this.input.classList.add( 'sp-je-input' );
 
-      if( this.label ){
-        this.label.classList.add( 'sp-je-label' );
-      }
-
       var spectrumOptions = {
         preferredFormat: "hex",
         color: this.value

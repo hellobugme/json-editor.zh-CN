@@ -7,9 +7,6 @@ License: MIT
 .sp-je-input {
     padding-left: 65px;
 }
-.sp-je-label {
-    display: block;
-}
 .sp-je-disabled {
     opacity: .6;
     pointer-events: none;
