@@ -37,8 +37,8 @@
         properties: {
           colorPicker: {
             type: 'string',
-            title: 'Color Picker',
-            format: 'color-picker',
+            title: 'Spectrum',
+            format: 'spectrum',
             spectrum: {
               showPalette: true,
               // palette: [],
@@ -51,11 +51,11 @@
           },
           colorPickerInTable: {
             type: 'array',
-            title: 'Color Picker in Table',
+            title: 'Spectrum in Table',
             format: 'table',
             items: {
               type: 'string',
-              format: 'color-picker',
+              format: 'spectrum',
               default: '#000000'
             },
             default: [ '#00FF00', '#0000FF' ]

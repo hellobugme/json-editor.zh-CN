@@ -12,7 +12,7 @@ License: MIT
   
   // resolver function
   JSONEditor.defaults.resolvers.unshift( function( schema ) {
-    if( schema.type === "string" && schema.format === "color-picker" ) {
+    if( schema.type === "string" && schema.format === "spectrum" ) {
       return "spectrum";
     }
   });
@@ -88,7 +88,7 @@ License: MIT
   // color validator
   JSONEditor.defaults.custom_validators.push( function( schema, value, path ) {
     var errors = [];
-    if( schema.format === "color-picker" ) {
+    if( schema.format === "spectrum" ) {
       if( !/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(value) ) {
         errors.push({
           path: path,
