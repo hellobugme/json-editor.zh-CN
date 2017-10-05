@@ -20,7 +20,7 @@ License: MIT
   // spectrum editor
   JSONEditor.defaults.editors.spectrum = JSONEditor.defaults.editors.string.extend({
 
-    postBuild: function(){
+    build: function(){
 
       this._super();
 
