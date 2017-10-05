@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>spectrum-editor demo</title>
+  <!-- jsoneditor js -->
+  <script src='../../jsoneditor.min.js'></script>
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <!-- jQuery js -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <!-- upload-editor js & css -->
+  <script src='upload-editor.js'></script>
+  <link rel="stylesheet" type="text/css" href="upload-editor.css">
+</head>
+<body>
+  <div id="editor_holder" style="margin: 10px;"></div>
+  <script type="text/javascript">
+    JSONEditor.defaults.upload.label = 'Choose a file...';
+    JSONEditor.defaults.upload.change = function( file ){
+      this.setValue( 'defaults.upload.change: ' + file.name);
+    }
+
+    var element = document.getElementById('editor_holder');
+    var editor = new JSONEditor( element, {
+      theme: 'bootstrap3',
+      schema: {
+        type: 'object',
+        properties: {
+          upload: {
+            type: 'string',
+            format: 'upload'
+          },
+          upload2: {
+            type: 'string',
+            format: 'upload',
+            upload: {
+              label: 'file',
+              change: function( file ){
+                this.setValue( 'schema.upload.change: ' + file.name );
+              }
+            }
+          }
+        }
+      }
+    });
+
+    editor.on( 'change', function() {
+      console.log( editor.getValue() );
+    });
+  </script>
+</body>
+</html>

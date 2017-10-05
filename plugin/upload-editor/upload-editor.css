@@ -1,0 +1,47 @@
+/***
+Upload File Editor for bootstrap3 for JSON Editor
+https://github.com/hellobugme/json-editor.zh-CN
+Author: Kainan Hong
+Reference: https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+License: MIT
+***/
+.upload-disabled {
+    opacity: .65;
+    pointer-events: none;
+}
+.inputfile-wrapper {
+    position: absolute;
+    display: inline-block;
+    margin-top: -33px;
+    margin-left: 1px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: 1px solid #ccc;
+}
+.inputfile-wrapper:hover {
+    border: 1px solid #f0c49b;
+    margin-top: -34px;
+    margin-left: 0;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    color: #333;
+    background-color: #eee;
+    display: inline-block;
+    padding: 6px;
+    min-width: 54px;
+    text-align: center;
+}
+.inputfile + label {
+    cursor: pointer;
+}
+.inputfile + label * {
+    pointer-events: none;
+}

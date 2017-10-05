@@ -8,7 +8,7 @@ License: MIT
     padding-left: 65px;
 }
 .sp-je-disabled {
-    opacity: .6;
+    opacity: .65;
     pointer-events: none;
 }
 .sp-replacer {
