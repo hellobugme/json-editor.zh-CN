@@ -27,10 +27,10 @@ License: MIT
       var self = this;
 
       this.input.type = 'text';
-      this.input.style.paddingLeft = '65px';
+      this.input.classList.add( 'sp-je-input' );
 
       if( this.label ){
-        this.label.style.display = 'block';
+        this.label.classList.add( 'sp-je-label' );
       }
 
       var spectrumOptions = {
@@ -73,12 +73,12 @@ License: MIT
 
     enable: function() {
       this._super();
-      this.spectrumReplacer.removeClass( 'disabled' );
+      this.spectrumReplacer.removeClass( 'sp-je-disabled' );
     },
 
     disable: function() {
       this._super();
-      this.spectrumReplacer.addClass( 'disabled' );
+      this.spectrumReplacer.addClass( 'sp-je-disabled' );
       // hide colorpicker
       this.spectrumInput.spectrum( 'hide' );
     }

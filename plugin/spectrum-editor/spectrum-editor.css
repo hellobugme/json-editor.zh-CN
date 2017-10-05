@@ -4,7 +4,16 @@ https://github.com/hellobugme/json-editor.zh-CN
 Author: Kainan Hong
 License: MIT
 ***/
-
+.sp-je-input {
+    padding-left: 65px;
+}
+.sp-je-label {
+    display: block;
+}
+.sp-je-disabled {
+    opacity: .6;
+    pointer-events: none;
+}
 .sp-replacer {
     position: absolute;
     margin-top: -33px;
@@ -26,8 +35,4 @@ License: MIT
 }
 .sp-palette {
     max-width: 100px;
-}
-.disabled {
-    opacity: .6;
-    pointer-events: none;
 }
