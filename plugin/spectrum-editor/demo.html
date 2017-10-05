@@ -18,7 +18,6 @@
   <div id="editor_holder" style="margin: 10px;"></div>
   <script type="text/javascript">
     // JSONEditor.defaults.spectrum.showButtons = false;
-
     JSONEditor.defaults.spectrum = {
       showInput: true,
       showInitial: true,
@@ -60,7 +59,7 @@
       }
     });
 
-    editor.on('change',function() {
+    editor.on( 'change', function() {
       console.log( editor.getValue() );
     });
   </script>
