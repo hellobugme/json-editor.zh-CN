@@ -12,11 +12,12 @@ License: MIT
 .inputfile-wrapper {
     position: absolute;
     display: inline-block;
-    margin-top: -33px;
-    margin-left: 1px;
+    background-color: #eee;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     border-right: 1px solid #ccc;
+    margin-top: -33px;
+    margin-left: 1px;
 }
 .inputfile-wrapper:hover {
     border: 1px solid #f0c49b;
@@ -33,7 +34,6 @@ License: MIT
 }
 .inputfile + label {
     color: #333;
-    background-color: #eee;
     display: inline-block;
     padding: 6px;
     min-width: 54px;
