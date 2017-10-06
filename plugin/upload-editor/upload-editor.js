@@ -35,7 +35,7 @@ License: MIT
       this.input.style.backgroundColor = '#fff';
 
       this.uploadWrapper = this.theme.getContainer();
-      this.uploadWrapper.classList.add( 'inputfile-wrapper')
+      this.uploadWrapper.classList.add( 'inputfile-wrapper');
       this.input.parentNode.appendChild( this.uploadWrapper );
 
       var id = 'upload-editor-' + ( idCounter++ );
@@ -43,6 +43,7 @@ License: MIT
       this.uploadInput.classList.add('inputfile');
       this.uploadInput.id = id;
       this.uploadWrapper.appendChild( this.uploadInput );
+      this.uploadInput.editor = this;
 
       var label = this.schema.upload && this.schema.upload.label || JSONEditor.defaults.upload.label;
       this.uploadLabel = this.theme.getFormInputLabel( label );
@@ -58,7 +59,7 @@ License: MIT
         if( file ){
           self.setValue( file.name );
           if( typeof change === 'function' ){
-            change.call( self, file );
+            change.call( this, file );
           }
         }
       };
@@ -80,6 +81,7 @@ License: MIT
 
     destroy: function(){
       this.uploadInput.onchange = null;
+      this.uploadInput.editor = null;
       this.uploadWrapper.removeChild( this.uploadLabel );
       this.uploadWrapper.removeChild( this.uploadInput );
       this.input.parentNode.removeChild( this.uploadWrapper );

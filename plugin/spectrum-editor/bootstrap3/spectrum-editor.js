@@ -44,8 +44,10 @@ License: MIT
       };
 
       this.spectrumInput = $( '<input>' );
-      this.spectrumInput.insertAfter( this.input )
+      this.spectrumInput.insertAfter( this.input );
       this.spectrumInput.spectrum( spectrumOptions );
+
+      this.spectrumInput.get(0).editor = this;
 
       this.spectrumReplacer = this.spectrumInput.siblings( '.sp-replacer' );
 
@@ -86,6 +88,7 @@ License: MIT
 
     destroy: function(){
       if( this.spectrumWrapper ){
+        this.spectrumInput.get(0).editor = null;
         this.spectrumInput.spectrum( 'destroy' );
       }
       this._super();

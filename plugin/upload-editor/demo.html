@@ -18,8 +18,8 @@
   <script type="text/javascript">
     JSONEditor.defaults.upload.label = 'Choose a file...';
     JSONEditor.defaults.upload.change = function( file ){
-      this.setValue( 'defaults.upload.change: ' + file.name);
-    }
+      this.editor.setValue( 'defaults.upload.change: ' + file.name);
+    };
 
     var element = document.getElementById('editor_holder');
     var editor = new JSONEditor( element, {
@@ -37,7 +37,7 @@
             upload: {
               label: 'file',
               change: function( file ){
-                this.setValue( 'schema.upload.change: ' + file.name );
+                this.editor.setValue( 'schema.upload.change: ' + file.name );
               }
             }
           }

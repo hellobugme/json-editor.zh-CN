@@ -25,6 +25,8 @@ License: MIT
       this._super();
 
       var self = this;
+
+      this.input.editor = this;
       
       var spectrumOptions = {
         preferredFormat: "hex",
@@ -67,6 +69,7 @@ License: MIT
 
     destroy: function(){
       if( this.spectrumWrapper ){
+        this.input.editor = null;
         this.spectrumInput.spectrum( 'destroy' );
         this.spectrumWrapper.remove();
       }
