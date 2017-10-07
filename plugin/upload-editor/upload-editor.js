@@ -57,7 +57,7 @@ License: MIT
       this.uploadInput.onchange = function( e ){
         var file = e.target.files[0];
         if( file ){
-          self.setValue( file.name );
+          // self.setValue( file.name );
           if( typeof change === 'function' ){
             change.call( this, file );
           }
