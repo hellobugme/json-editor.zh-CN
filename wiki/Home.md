@@ -192,7 +192,9 @@ AbstractEditor 类定义了许多可以让子类扩展的方法，下面逐个�
 *  `this.container` - 编辑器包裹 DOM 元素的容器
 *  `this.theme` - 主题类的实例（例如一个扩展自 `JSONEditor.AbstractTheme` 的主题），通过它来创建 DOM 结构。
 
-当用户修改了编辑器的值（如勾选一个复选框），它需要调用 `this.onChange(true);` 来通知 JSON Editor。你也可能想要调用 `this.refreshValue()` 来保存这个值。
+当用户修改了编辑器的值（如勾选一个复选框），它需要调用 `this.onChange(true)` 来通知 JSON Editor。你也可能想要调用 `this.refreshValue()` 来保存这个值。
+
+> **译者注：** 调用 `this.refreshValue()` 保存字段的新值，然后再调用 `this.onChange(true)` 通知 JSON Editor，这样 `editor.getValue()` 就能取到新值了
 
 ### editor.postBuild()
 这个函数会在 `build` 后立即执行，通常用于创建事件侦听器和一些收尾工作。
