@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>extra demo</title>
+  <!-- jsoneditor js -->
+  <script src='../jsoneditor.min.js'></script>
+  <!-- extra js -->
+  <script src='extra.js'></script>
+</head>
+<body>
+  <div id="editor_holder" style="margin: 10px;"></div>
+  <script type="text/javascript">
+
+    var element = document.getElementById('editor_holder');
+    var editor = new JSONEditor( element, {
+      schema: {
+        type: 'object',
+        properties: {
+          string: {
+            type: 'string'
+          },
+          object: {
+            type: 'object',
+            properties: {
+              a: {
+                type: 'string',
+                mydata: '-- I am root.object.a --'
+              },
+              b: {
+                type: 'string'
+              }
+            }
+          },
+          array: {
+            type: 'array',
+            format: 'table',
+            items: {
+              type: 'string'
+            }
+          }
+        }
+      }
+    });
+
+    editor.watch2( 'root.object.a', function( data ){
+      console.log( '[ watch2 ]', data ); // { path:'root.*', old_value:*, new_value:* }
+
+      var _editor = editor.getEditor( data.path );
+      var _schema = _editor.schema;
+      console.log( '[ watch2 ]', _schema.mydata );
+    });
+
+    // watch all properties
+    editor.watchAll(function( data ){
+      console.log( '[ watchAll ]', data );
+    });
+
+    editor.setValue({string:'test', object:{a:'a', b:'b'}, array:[]});
+  </script>
+</body>
+</html>
