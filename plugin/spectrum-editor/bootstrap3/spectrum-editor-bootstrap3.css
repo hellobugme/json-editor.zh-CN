@@ -1,5 +1,5 @@
 /***
-Spectrum Editor for JSON Editor
+Spectrum Editor for JSON Editor for Bootstrap3
 https://github.com/hellobugme/json-editor.zh-CN
 Author: Kainan Hong
 License: MIT
