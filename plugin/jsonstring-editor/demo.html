@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>jsonstring-editor demo</title>
+  <!-- jsoneditor js -->
+  <script src='../../jsoneditor.min.js'></script>
+  <!-- jsonstring-editor js -->
+  <script src='jsonstring-editor.js'></script>
+</head>
+<body>
+  <div id="editor_holder" style="margin: 10px;"></div>
+  <script type="text/javascript">
+    var element = document.getElementById('editor_holder');
+    var editor = new JSONEditor( element, {
+      schema: {
+        type: 'object',
+        title: 'JSON String',
+        options: {
+          json_string: true
+        },
+        properties: {
+          a: {
+            type: 'string'
+          },
+          b: {
+            type: 'string'
+          }
+        }
+      }
+    });
+
+    editor.on( 'change', function() {
+      var value = editor.getValue();
+      console.log( '[' + (typeof value) + ']', value  );
+    });
+
+    editor.setValue( '{ "a":"a", "b":"b" }' );
+  </script>
+</body>
+</html>
