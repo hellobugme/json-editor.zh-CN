@@ -1,5 +1,5 @@
 /***
-Upload File Editor for Bootstrap3 for JSON Editor
+Upload File Editor for JSON Editor for Bootstrap3
 https://github.com/hellobugme/json-editor.zh-CN
 Author: Kainan Hong
 License: MIT
