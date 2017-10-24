@@ -34,7 +34,7 @@ License: MIT
         path: path,
         old_value: old_value,
         new_value: new_value
-      })
+      });
 
       old_value = new_value;
     });
@@ -42,7 +42,7 @@ License: MIT
 
   JSONEditor.prototype.watchAll = function( callback ){
     var self = this;
-    $getPaths(this.schema).forEach(function( path ){
+    $getPaths(this.schema, this.path).forEach(function( path ){
       self.watch2( path, callback );
     });
   };
