@@ -2,11 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>jsonstring-editor demo</title>
+  <title>objectstring-editor demo</title>
   <!-- jsoneditor js -->
   <script src='../../jsoneditor.min.js'></script>
-  <!-- jsonstring-editor js -->
-  <script src='jsonstring-editor.js'></script>
+  <!-- objectstring-editor js -->
+  <script src='objectstring-editor.js'></script>
 </head>
 <body>
   <div id="editor_holder" style="margin: 10px;"></div>
@@ -14,11 +14,8 @@
     var element = document.getElementById('editor_holder');
     var editor = new JSONEditor( element, {
       schema: {
-        type: 'object',
-        title: 'JSON String',
-        options: {
-          json_string: true
-        },
+        type: 'object-string',
+        title: 'Object String',
         properties: {
           a: {
             type: 'string'

@@ -130,7 +130,7 @@ JSONEditor.defaults.iconlibs.fontawesome4 = JSONEditor.AbstractIconLib.extend({
 -------------------
 主题负责处理 JSON Editor 表单的 DOM 创建、布局和渲染。所有的主题继承自 `JSONEditor.AbstractTheme` 类。
 
-JSON Editor 只附带了几个的主题，要创建自己的主题非常简单，抽象类中的函数返回一个最基础的 DOM 节点结构，所以大部分情况下你只需要这样：
+JSON Editor 只附带了几个主题，要创建自己的主题非常简单，抽象类中的函数返回一个最基础的 DOM 节点结构，所以大部分情况下你只需要这样：
 
 ```js
 JSONEditor.defaults.themes.mytheme = JSONEditor.AbstractTheme.extend({
